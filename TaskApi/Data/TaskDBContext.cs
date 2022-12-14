@@ -12,8 +12,8 @@ namespace TaskApi.Data
         {
 
         }
-        public DbSet<UserModel> Users { get; set; }
-        public DbSet<TaskModel> Tasks { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Models.Todo> Tasks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
