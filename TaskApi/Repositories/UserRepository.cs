@@ -14,24 +14,24 @@ namespace TaskApi.Repositories
         {
             _dbContext = taskDBContext;
         }
-        public async Task<List<UserModel>> FindAllUsers()
+        public async Task<List<User>> FindAllUsers()
         {
             return await _dbContext.Users.ToListAsync();
         }
 
-        public async Task<UserModel> FindUserById(int id)
+        public async Task<User> FindUserById(int id)
         {
             return await _dbContext.Users.FirstOrDefaultAsync(x => x.Id == id);
         }
-        public async Task<UserModel> AddUser(UserModel user)
+        public async Task<User> AddUser(User user)
         {
             await _dbContext.Users.AddAsync(user);
             await _dbContext.SaveChangesAsync();
             return user;
         }
-        public async Task<UserModel> UpdateUser(UserModel user, int id)
+        public async Task<User> UpdateUser(User user, int id)
         {
-            UserModel userById = await FindUserById(id);
+            User userById = await FindUserById(id);
 
             if (userById == null)
             {
@@ -49,7 +49,7 @@ namespace TaskApi.Repositories
 
         public async Task<bool> DeleteUser(int id)
         {
-            UserModel userById = await FindUserById(id);
+            User userById = await FindUserById(id);
 
             if (userById == null)
             {

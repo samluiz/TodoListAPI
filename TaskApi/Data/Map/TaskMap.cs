@@ -4,9 +4,9 @@ using TaskApi.Models;
 
 namespace TaskApi.Data.Map
 {
-    public class TaskMap : IEntityTypeConfiguration<TaskModel>
+    public class TaskMap : IEntityTypeConfiguration<Models.Todo>
     {
-        public void Configure(EntityTypeBuilder<TaskModel> builder)
+        public void Configure(EntityTypeBuilder<Models.Todo> builder)
         {
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Name).IsRequired().HasMaxLength(255);

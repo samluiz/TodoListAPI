@@ -17,30 +17,30 @@ namespace TaskApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<UserModel>>> FindAllUsers()
+        public async Task<ActionResult<List<User>>> FindAllUsers()
         {
-           List<UserModel> users = await _userRepository.FindAllUsers();
-            return Ok(users);
+           List<User> users = await _userRepository.FindAllUsers();
+           return Ok(users);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<List<UserModel>>> FindUserById(int id)
+        public async Task<ActionResult<User>> FindUserById(int id)
         {
-            UserModel user = await _userRepository.FindUserById(id);
+            User user = await _userRepository.FindUserById(id);
             return Ok(user);
         }
 
         [HttpPost]
-        public async Task<ActionResult<UserModel>> AddUser([FromBody] UserModel user)
+        public async Task<ActionResult<User>> AddUser([FromBody] User user)
         {
-            UserModel newUser = await _userRepository.AddUser(user);
+            User newUser = await _userRepository.AddUser(user);
             return Ok(newUser);
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<UserModel>> UpdateUser([FromBody] UserModel user, int id)
+        public async Task<ActionResult<User>> UpdateUser([FromBody] User user, int id)
         {
-            UserModel updatedUser = await _userRepository.UpdateUser(user, id);
+            User updatedUser = await _userRepository.UpdateUser(user, id);
             return Ok(updatedUser);
         }
 

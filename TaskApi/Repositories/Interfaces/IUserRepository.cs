@@ -4,10 +4,10 @@ namespace TaskApi.Repositories.Interfaces
 {
     public interface IUserRepository
     {
-        Task<List<UserModel>> FindAllUsers();
-        Task<UserModel> FindUserById(int id);
-        Task<UserModel> AddUser(UserModel user);
-        Task<UserModel> UpdateUser(UserModel user, int id);
+        Task<List<User>> FindAllUsers();
+        Task<User> FindUserById(int id);
+        Task<User> AddUser(User user);
+        Task<User> UpdateUser(User user, int id);
 
         Task<bool> DeleteUser(int id);
     }
